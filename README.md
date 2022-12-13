@@ -1,10 +1,8 @@
-# js0.23-improved
+# SKYLINE 1.0.0
 
-[![GitHub downloads](https://img.shields.io/github/downloads/RobinBoers/js0.23-improved/total)](https://github.com/RobinBoers/js0.23-improved/releases)
-[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
-[![GitHub version](https://img.shields.io/github/v/release/RobinBoers/js0.23-improved?include_prereleases)](https://github.com/RobinBoers/js0.23-improved/releases)
-
-This project aims to improve upon js0.23 ([classic.minecraft.net](https://classic.minecraft.net)) by adding features to make it closer to the original, or just stuff I like myself.
+[![GitHub downloads](#)](#)
+[![PR's Welcome](#)](#)
+[![GitHub version](#)](#)
 
 - Electron application
 - Tweaked menus
@@ -19,19 +17,13 @@ This project aims to improve upon js0.23 ([classic.minecraft.net](https://classi
 - Better pitched bush sounds (but I also like the low sound, so it's a bit lower then the original)
 - All items are obtainable
 - Somewhat improved movement
-- Simple flying mode (made by a mod developer at <http://mod.heathmitchell1.repl.co/>)
+- Simple flying mode
 
 ### Contributing
 
 If you have cool ideas, bugfixes, suggestions or anything else,
 feel free to contribute to the project by making a pull request!  
 [Read more about contributing to this project](CONTRIBUTING.md)
-
-### Thanks to
-
-- [RealTheSunCat](https://github.com/RealTheSunCat/Minecraft-Classic-Reversed), who documented large parts of the code.  
-- Alawnely, who has [this great video](https://www.youtube.com/watch?v=SFom-RNcLps&t=586s) about modding js0.23
-- The js0.23 modding community
 
 ### Takedown
 
