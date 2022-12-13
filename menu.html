@@ -1,0 +1,452 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="sv-SE"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" lang="sv-SE"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" lang="sv-SE"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="sv-SE" prefix="og: http://ogp.me/ns#"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>SKYLINE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <link href="assets/css/menu198e.css?4e4e005077c1d4940468" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="Classic">
+    <meta name="application-name" content="Classic">
+    <meta name="msapplication-TileColor" content="#2b2b2b">
+    <meta name="theme-color" content="#2b2b2b">
+    <meta name="robots" content="noindex">
+
+<!-- SNOW BEGIN -->
+
+<body>
+<!-- partial:index.partial.html -->
+<link rel="stylesheet" href="assets/css/style.css">
+<canvas class="snow" id="snow"></canvas>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script><script  src="assets/js/snowelement.js"></script>
+</body>
+
+<!-- SNOW END -->
+
+<body id="panorama"></body>
+<body onload="menuScreen()">
+<div class="page-content menu">
+    <main role="main" class="u-main">
+        <div class="logo"><img src="assets/textures/modded/logo.png"><span class="pulse splash"></span></div>
+        <div><h1 data-text="BETA TEST">BETA TEST</h1></div>
+        <a onclick="bntClick();newGame()" class="btn"><div class="btn-text"><span data-text="Generate New Level">Generate  New Level</span></div></a>
+        <a class="btn disabled" id="loadBtn"><div class="btn-text"><span data-text="Load Level">Load Level</span></div></a>
+        <!--<a class="btn disabled"><div class="btn-text"><span data-text="Play Tutorial Level">Play Tutorial Level</span></div></a>-->
+        <a onclick="bntClick();infosScreen()" class="btn"><div class="btn-text"><span data-text="More Information">More Information</span></div></a>
+
+        <a onclick="bntClick();optionsScreen()" class="btn btn-bottom"><div class="btn-text"><span data-text="Options">Options</span></div></a>
+
+    </main>
+
+<div class="version1">
+<footer><span data-text="Do Not Distribute">Do Not Distribute</span></footer>
+<footer><span data-text="COPYRIGHT YNAMO LLC&#8482;">COPYRIGHT YNAMO LLC&#8482;</span></footer>
+</div>
+
+<div class="version2">
+<footer><span onclick="showCredits()" data-text=" Skyline&#8482; Winter Edition 2022"> Skyline&#8482; Winter Edition 2022</span></footer>
+</div>
+
+</div>
+<div class="page-content newgame">
+    <main role="main" class="u-main">
+        <div><h1 data-text="Generate New Level">Generate New Level</h1></div>
+        <a onclick="bntClick();chooseSize()" class="btn"><div class="btn-text"><span id="sizeBtn" data-text="Size: Normal">Size: Normal</span></div></a>
+        <br><center><a onclick="bntClick();" class="btn"><input class="btn-input" id="seedInput" type="text" placeholder="SEED"></a></center>
+
+        <a onclick="bntClick();generateNewGame()" class="btn btn-bottom"><div class="btn-text"><span data-text="Create">Create</span></div></a>
+        <a onclick="bntClick();menuScreen()" class="btn"><div class="btn-text"><span data-text="Cancel">Cancel</span></div></a>
+    </main>
+</div>
+
+<!-- <div class="page-content newgame">
+    <main role="main" class="u-main">
+        <div><h1 data-text="Generate new level">Generate new level</h1></div>
+        <a onclick="bntClick();generateNewGame('small')" class="btn"><div class="btn-text"><span data-text="Small">Small</span></div></a>
+        <a onclick="bntClick();generateNewGame('normal')" class="btn"><div class="btn-text"><span data-text="Normal">Normal</span></div></a>
+        <a onclick="bntClick();generateNewGame('huge')" class="btn"><div class="btn-text"><span data-text="Huge">Huge</span></div></a>
+
+        <a onclick="bntClick();menuScreen()" class="btn"><div class="btn-text"><span data-text="Cancel">Cancel</span></div></a>
+    </main>
+</div> -->
+
+<div class="page-content options">
+    <main role="main" class="u-main">
+        <div><h1 data-text="Options">Options</h1></div>
+        
+        <a class="btn" id="delBtn"><div class="btn-text"><span data-text="Delete Saved Level">Delete Saved Level</span></div></a>
+        <a onclick="bntClick();toggleFullscreen()" class="btn"><div class="btn-text"><span data-text="Fullscreen: OFF" id="fullBtn">Fullscreen: OFF</span></div></a>
+        <a onclick="bntClick();toggleModded()" class="btn"><div class="btn-text"><span data-text="Use modded client: OFF" id="modBtn">Use modded client: OFF</span></div></a>
+        <a class="btn" id="restBtn"><div class="btn-text"><span data-text="Restore Defaults">Restore Defaults</span></div></a>
+
+        <div><p data-text="* Gameplay options only available in-game.">* Gameplay options only available in-game.</p></div>
+
+        <a onclick="bntClick();menuScreen()" class="btn btn-bottom"><div class="btn-text"><span data-text="Back">Back</span></div></a>
+    </main>
+</div>
+
+<div class="page-content infos">
+    <main role="main" class="u-main">
+        <div><h1 data-text="More Information">More Information</h1></div>
+       
+        <a class="btn disabled" id="#"><div class="btn-text"><span data-text="Switch To Newest Version">Switch To Newest Version</span></div></a>
+        <a class="btn" onclick="bntClick();vscScreen()"><div class="btn-text"><span data-text="ABOUT VERSION">ABOUT VERSION</span></div></a>
+
+        <a onclick="bntClick();menuScreen()" class="btn btn-bottom"><div class="btn-text"><span data-text="Back">Back</span></div></a>
+    </main>
+</div>
+
+<div class="page-content vsc">
+    <main role="main" class="u-main">
+        <div><h1 data-text="VERSION LIST">VERSION LIST</h1></div>
+       
+        <a class="btn disabled" id="#"><div class="btn-text"><span data-text="TEST">TEST</span></div></a>
+
+        <a class="btn disabled" id="#"><div class="btn-text"><span data-text="PRE-ALPHA">PRE-ALPHA</span></div></a>
+
+        <a class="btn disabled" id="#"><div class="btn-text"><span data-text="ALPHA">ALPHA</span></div></a>
+
+        <a class="btn disabled" id="#"><div class="btn-text"><span data-text="PRE-BETA">PRE-BETA</span></div></a>
+
+        <a class="btn disabled" id="#"><div class="btn-text"><span data-text="WINTER EDITION">WINTER EDITION</span></div></a>
+
+        <a class="btn disabled" id="#"><div class="btn-text"><span data-text="--">--</span></div></a>
+
+        <div><p data-text="Version list Ynamo archive 2018-2022">Version list Ynamo archive 2018-2022</p></div>
+
+        <a onclick="bntClick();infosScreen()" class="btn btn-bottom"><div class="btn-text"><span data-text="Back">Back</span></div></a>
+    </main>
+</div>
+
+<div class="page-content credits">
+    <main role="main" class="u-main" onclick="menuScreen()">
+        <div class="logo-credits"><img src="assets/textures/modded/logo.png"></div>
+        <p class="bold" data-text="Original Creator:">Original Creator:</p>
+        <p data-text='Markus "Notch" Persson'>Markus "Notch" Persson</p>
+        <p data-text="---------------">---------------</p>
+        <p data-text="This is a online recreation of the Skyline Winter edition version 1.0.2022 which is for new year">This is a online recreation of the Skyline Winter edition version 1.0.2022 which is for new year</p>
+        <p data-text="Copyright YNAMO Studios LLC">Copyright YNAMO Studios LLC</p>
+
+    </main>
+</div>
+
+<noscript>
+    <div class="page-content">
+        <main role="main">
+            PLEASE ENABLE JAVASCRIPT FOR RUN THE SKYLINE
+        </main>
+    </div>
+</noscript>
+
+<div class="page-content oops">
+    <main role="main" class="u-main">
+        <div class="logo-credits"><img src="assets/textures/modded/logo.png"></div>
+        <p data-text="SOMETHING WENT WRONG">SOMETHING WENT WRONG</p>
+    </main>
+</div>
+
+<script>
+
+    // Get elements from html
+    var menu = document.querySelector(".menu");
+    var options = document.querySelector(".options");
+    var infos = document.querySelector(".infos");
+    var vsc = document.querySelector(".vsc");
+    var newgame = document.querySelector(".newgame");
+    var credits = document.querySelector(".credits");
+    var oops = document.querySelector(".oops");
+    var loadBtn = document.querySelector("#loadBtn");
+    var delBtn = document.querySelector("#delBtn");
+    var restBtn = document.querySelector("#restBtn");
+    var fullBtn = document.querySelector("#fullBtn");
+    var modBtn = document.querySelector("#modBtn");
+    var sizeBtn = document.querySelector("#sizeBtn");
+    var splashText = document.querySelector(".splash");
+    localStorage = window.localStorage;
+
+    // Functions to switch visible screen
+
+    function newGame() {
+        menu.style.display = "none";
+        options.style.display = "none";
+        infos.style.display = "none";
+        vsc.style.display = "none";
+        newgame.style.display = "block";
+        credits.style.display = "none";
+    }
+
+    function menuScreen() {
+        menu.style.display = "block";
+        options.style.display = "none";
+        infos.style.display = "none";
+        vsc.style.display = "none";
+        newgame.style.display = "none";
+        credits.style.display = "none";
+        oops.style.display = "none";
+    }
+
+    function optionsScreen() {
+        menu.style.display = "none";
+        options.style.display = "block";
+        infos.style.display = "none";
+        vsc.style.display = "none";
+        newgame.style.display = "none";
+        credits.style.display = "none";
+    }
+
+    function infosScreen() {
+        menu.style.display = "none";
+        options.style.display = "none";
+        infos.style.display = "block";
+        vsc.style.display = "none";
+        newgame.style.display = "none";
+        credits.style.display = "none";
+    }
+
+    function vscScreen() {
+        menu.style.display = "none";
+        options.style.display = "none";
+        infos.style.display = "none";
+        vsc.style.display = "block";
+        newgame.style.display = "none";
+        credits.style.display = "none";
+    }
+
+    function showCredits() {
+        menu.style.display = "none";
+        options.style.display = "none";
+        infos.style.display = "none";
+        vsc.style.display = "none";
+        newgame.style.display = "none";
+        credits.style.display = "block";
+    }
+
+    var size = 1;
+
+    function chooseSize() {
+        if(size == 1) {
+            size = 2
+        } else if(size == 2) {
+            size = 0
+        } else {
+            size = 1
+        }
+
+        reload();
+    }
+
+    // Functions for buttons
+
+    function restoreDefaults() {
+        localStorage.removeItem("settings");
+        localStorage.removeItem("fullscreen");
+        localStorage.removeItem("modded");
+        reload();
+    }
+
+    function loadLevel() {
+        setTimeout(() => { 
+            window.location = "game.html";
+        }, 150);
+    }
+
+    function generateNewGame() {
+
+        var sizeStr = 256;
+
+        if(size == 0) sizeStr = "small";
+        else if(size == 2) sizeStr = "huge";
+        else sizeStr = "normal";
+
+        if(size == 0) size = 128;
+        else if(size == 2) size = 512;
+        else size = 256;
+
+        var seed = document.getElementById('seedInput').value;
+
+        var saveGame = {"worldSeed":seed,"changedBlocks":{},"worldSize":size,"version":1};
+        saveGame = JSON.stringify(saveGame);
+
+        if(seed == null || seed == "") {
+            setTimeout(() => { 
+                deleteSavedLevel();
+                window.location = "game.html?size="+sizeStr;
+            }, 150);
+        } else {
+            localStorage.setItem('savedGame', saveGame);
+            setTimeout(() => { 
+                window.location = "game.html";
+            }, 150);
+        }
+
+    }
+
+    function deleteSavedLevel() {
+        localStorage.removeItem("savedGame");
+        reload();
+    }
+
+    function bntClick() {
+        var audio = new Audio('assets/sounds/click.mp3');
+        audio.play();
+    }
+
+    function toggleFullscreen() {
+        if(localStorage.getItem("fullscreen") === "false") {
+            localStorage.setItem("fullscreen", "true");
+            try {openFullscreen()} catch{console.log("Failed to close fullscreen. Maybe already closed?")}
+        } else {
+            localStorage.setItem("fullscreen", "false");
+            try {closeFullscreen()} catch{console.log("Failed to close fullscreen. Maybe already closed?")}
+        }
+        reload();
+    }
+
+    function toggleModded() {
+        if(localStorage.getItem("modded") === "false") {
+            localStorage.setItem("modded", "true");
+        } else localStorage.setItem("modded", "false");
+        reload();
+    }
+
+    function reload() {
+        // Disable the "Load level.." button
+        // when there is no saved level to load.
+        if (localStorage.getItem("savedGame") === null) {
+            loadBtn.setAttribute("onclick", ""); 
+            loadBtn.setAttribute("class", "btn disabled"); 
+            delBtn.setAttribute("onclick", ""); 
+            delBtn.setAttribute("class", "btn disabled"); 
+        } else {
+            loadBtn.setAttribute("onclick", "bntClick();loadLevel()"); 
+            loadBtn.setAttribute("class", "btn"); 
+            delBtn.setAttribute("onclick", "bntClick();deleteSavedLevel()"); 
+            delBtn.setAttribute("class", "btn"); 
+        }
+
+        if(localStorage.getItem("settings") === null && (localStorage.getItem("fullscreen") === null || localStorage.getItem("fullscreen") === "false") && (localStorage.getItem("modded") === null || localStorage.getItem("modded") === "false")) {
+            restBtn.setAttribute("onclick", ""); 
+            restBtn.setAttribute("class", "btn disabled"); 
+        } else {
+            restBtn.setAttribute("onclick", "bntClick();restoreDefaults()"); 
+            restBtn.setAttribute("class", "btn"); 
+        }
+
+        if(localStorage.getItem("fullscreen") === null) {
+            localStorage.setItem("fullscreen", "false");
+        } 
+
+        if(localStorage.getItem("modded") === null) {
+            localStorage.setItem("modded", "false");
+        } 
+
+        checkForFullscreen();
+
+        var str = "Use modded client: OOPS!";
+        if(localStorage.getItem("modded") === "false") {
+            str = "Use modded client: OFF";
+        } else if(localStorage.getItem("modded") === "true") {
+            str = "Use modded client: ON";
+        }
+        modBtn.innerText = str;
+        modBtn.setAttribute("data-text", str); 
+
+        var str = "Size: OOPS!";
+        if(size == 1) {
+            str = "Size: Normal";
+        } else if(size == 2) {
+            str = "Size: Huge";
+        } else {
+            str = "Size: Small";
+        }
+
+        sizeBtn.innerText = str;
+        sizeBtn.setAttribute("data-text", str); 
+
+    }
+
+    reload();
+
+    // Other functions
+
+    var elem = document.documentElement;
+
+    function openFullscreen() {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
+
+    function closeFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+
+    function checkForFullscreen() {
+        var str = "Fullscreen: OOPS!";
+        if(localStorage.getItem("fullscreen") === "false") {
+            str = "Fullscreen: OFF";
+        } else if(localStorage.getItem("fullscreen") === "true") {
+            str = "Fullscreen: ON";
+        }
+        fullBtn.innerText = str;
+        fullBtn.setAttribute("data-text", str); 
+    }
+
+    // Splashes
+
+    // Random thing from array thingie from StackOverflow
+    Array.prototype.random = function () {
+        return this[Math.floor((Math.random()*this.length))];
+    }
+
+    var splashes = [
+        'Thank you Notch','5 years old', 'CLASSIC', 'SKYLINE', 'PRE-BETA', 'SKYSLIME', '09:03', ' 202 "2" --> "3" ', "AMUQACI", "@ THE MOMENTATION"
+    ];
+
+    // Get random splash
+    var randomSplash = splashes.random();
+
+    // Display it
+    splashText.innerText = randomSplash;
+</script>
+
+<head>
+
+<video autoplay loop muted>
+    <source src="assets/sounds/menu1.mp3" />
+</video>
+
+<script>
+    window.onload = function () {
+        document.querySelector("video").muted = false;
+    };
+</script>
+
+</head>
+
+
+
+</html>
